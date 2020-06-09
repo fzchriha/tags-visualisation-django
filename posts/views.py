@@ -40,13 +40,13 @@ def tagged(request, slug):
     }
     return render(request, 'home.html', context)
 
-def pie_chart(request):
+def statistics(request):
     traits = Counter()
-    crushes =  Post.objects.all()
-    for crush in crushes:
-        for trait in crush.tags.names():
+    posts =  Post.objects.all()
+    for post in posts:
+        for trait in post.tags.names():
             traits[trait] += 1
     context = {
         'traits': dict(traits)
     }
-    return render(request, 'pie_chart.html', context)
+    return render(request, 'statistics.html', context)
