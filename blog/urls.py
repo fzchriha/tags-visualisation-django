@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from posts.views import home_view, detail_view, tagged, pie_chart
+from posts.views import home_view, detail_view, tagged, statistics
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
     path('post/<slug:slug>/', detail_view, name="detail"),
     path('tag/<slug:slug>/', tagged, name="tagged"),
-    path('pie-chart/', pie_chart, name='pie-chart'),
+    path('statistics/', statistics, name='statistics'),
     
 
 ]
